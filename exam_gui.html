@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculus I · Exam Practice</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#19352d;background:#f2f5f1;font-synthesis:none}*{box-sizing:border-box}body{margin:0}main{max-width:990px;margin:44px auto;padding:0 26px}header{display:flex;align-items:start;justify-content:space-between;gap:20px}h1{font-size:36px;letter-spacing:-1.3px;margin:6px 0 10px}p{line-height:1.7;margin:12px 0}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.7px;color:#57796a;font-weight:700}.muted{color:#66796e;font-size:14px}.controls{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin:25px 0}label{display:block;font-size:13px;font-weight:650;margin-bottom:9px}select{width:100%;padding:13px;border:1px solid #c3d2c6;border-radius:10px;background:#fff;color:inherit;font:inherit}button{font:inherit;font-size:14px;cursor:pointer;border:1px solid #bbcec0;border-radius:10px;padding:12px 17px;background:#fff;color:#234737;transition:background .15s}button:hover{background:#eaf3ec}button:focus-visible,select:focus-visible{outline:3px solid #80b89b;outline-offset:3px}button:disabled{opacity:.5;cursor:default}.primary{background:#246448;color:#fff;border-color:#246448}.primary:hover{background:#194e36}.question-card{background:#fff;border:1px solid #dce5dc;border-radius:20px;padding:32px;box-shadow:0 8px 30px #18302906}.meta{display:flex;align-items:center;justify-content:space-between;gap:12px}.badge{font-size:11px;background:#edf3ee;color:#496655;padding:6px 10px;border-radius:20px;white-space:nowrap}.badge.challenge{background:#f7eddc;color:#82602e}#prompt{font-size:17px;margin-top:22px}#equation{font-size:27px;overflow-x:auto;padding:20px 4px 25px}math{font-family:'Cambria Math','STIX Two Math',serif}math[display=block]{margin:0;text-align:left}.toolbar{display:flex;flex-wrap:wrap;gap:10px;border-top:1px solid #ecf0eb;padding-top:22px}.toolbar .primary{margin-left:auto}#answer{margin-top:24px;border:1px solid #bfd7c6;background:#f0f8f2;border-radius:13px;padding:22px}#answer-equation{font-size:24px;overflow:auto;padding:17px 0 4px}#conclusion{font-size:14px;color:#365b46;white-space:pre-line}#solution{margin-top:32px}.solution-head{display:flex;justify-content:space-between;align-items:center;gap:16px}h2{font-size:21px;letter-spacing:-.4px;margin:0 0 7px}#progress-text{font-size:13px;color:#657a6d}.progress{height:5px;background:#dce7de;border-radius:8px;margin:17px 0 24px;overflow:hidden}#progress-fill{background:#3b815e;height:100%;width:0%;transition:width .25s}#steps{list-style:none;padding:0;margin:0;display:grid;gap:16px}.step-card{background:white;border:1px solid #dce5dc;border-radius:15px;overflow:hidden;animation:appear .2s ease-out}.step-heading{display:flex;align-items:center;gap:13px;padding:20px 23px 0}.number{width:29px;height:29px;display:grid;place-items:center;flex-shrink:0;border-radius:9px;background:#e8f2ea;color:#2e694b;font-size:13px;font-weight:750}h3{font-size:16px;margin:0;letter-spacing:-.1px}.step-body{padding:2px 23px 21px 65px}.step-body p{font-size:14px;color:#5a7162;line-height:1.75}.step-math{background:#f7f9f6;border:1px solid #e7ede6;border-radius:9px;padding:18px;font-size:21px;overflow-x:auto;margin-top:14px}.tip{background:#fff8ea;border-radius:8px;padding:11px 14px;margin-top:14px;font-size:13px;color:#795d2f;line-height:1.65}.tip strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}#check{background:#e8f2eb;border-radius:13px;padding:20px 23px;margin-top:18px;font-size:14px;color:#3e6550}#check strong{display:block;margin-bottom:5px}#empty{border:1px dashed #bdcec0;border-radius:13px;padding:23px;color:#627a6a;font-size:14px;line-height:1.7}#error{color:#9a3027}#quit,#collapse{font-size:12px;padding:9px 12px;background:transparent}footer{margin:25px 0 35px;line-height:1.8}.hidden{display:none!important}@keyframes appear{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}@media(max-width:620px){main{margin:24px auto;padding:0 15px}h1{font-size:29px}.controls{grid-template-columns:1fr;gap:13px}.question-card{padding:22px}#equation{font-size:22px}.toolbar .primary{margin-left:0}.step-body{padding:4px 18px 20px}.step-heading{padding:18px 18px 0}.step-math{font-size:19px}.meta{align-items:start}.eyebrow{line-height:1.7}}
+</style>
+<main>
+<header><div><div class="eyebrow">The exam practice edition</div><h1>Calculus I</h1><p class="muted">More reasoning. More variety. Work through it one step at a time.</p></div><button id="quit">Exit app</button></header>
+<div class="controls"><div><label for="topic">Practice topic</label><select id="topic"></select></div><div><label for="difficulty">Difficulty</label><select id="difficulty"><option value="0">Mixed exam levels</option><option value="1">Standard exam</option><option value="2">Challenge</option></select></div></div>
+<section class="question-card"><div class="meta"><div class="eyebrow" id="label">Preparing a problem…</div><span class="badge" id="level">Exam practice</span></div><p id="prompt"></p><div id="equation"></div><div class="toolbar"><button id="reveal">Show answer</button><button id="hint">Show next step</button><button id="solve">Full solution</button><button id="next" class="primary">Next problem →</button></div><div id="answer" class="hidden"><div class="eyebrow">Final answer</div><div id="answer-equation"></div><p id="conclusion"></p></div><p id="error" role="status"></p></section>
+<section id="solution" aria-label="Worked solution"><div class="solution-head"><div><h2>Work through the solution</h2><span id="progress-text">The solution stays hidden until you request it.</span></div><button id="collapse" class="hidden" aria-expanded="true">Collapse steps</button></div><div class="progress" role="progressbar" aria-label="Solution steps revealed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress"><div id="progress-fill"></div></div><div id="empty">Start on paper. <strong>Show next step</strong> reveals one part of the reasoning at a time, with equations and common mistakes to watch for.</div><div id="solution-content"><ol id="steps" aria-live="polite" aria-relevant="additions"></ol><div id="check" class="hidden"><strong>Check your work</strong><span id="check-text"></span></div></div></section>
+<footer class="muted">40 exam-style problem families · 20 topics · Randomized values · Fully offline<br>Original practice questions based on common Calc I skills; your course's exam coverage may differ.<br>Angles are in radians. Work on paper; this app reveals solutions and does not grade answers.</footer>
+</main><script>
+const names=['Mixed exam practice','Limits · algebra & infinity','Limits · trigonometry','Derivatives & higher derivatives','Chain rule · nested functions','Product rule','Quotient rule','Exponential & logarithmic derivatives','Implicit differentiation','Tangent & normal lines','Curve analysis & extrema','Optimization','Indefinite integrals','Definite integrals & area','Integration · substitution','Fundamental Theorem of Calculus','Related rates','Continuity & differentiability','Mean Value Theorem & linear approximation','Motion & initial-value problems',"L'Hopital's rule & indeterminate forms"];
+const $=id=>document.getElementById(id);
+names.forEach((name,i)=>$('topic').add(new Option(name,i)));
+const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+// Local MathML expression grammar: grouping, powers, fractions and calculus operators.
+function expr(source){
+ const blocks=[];
+ source=source.replace(/(INT|LIM|DERIV)\[([^\[\]]*)\]/g,(_,kind,content)=>{
+  const v=content.split('|');let html;
+  if(kind==='INT'){
+   const sign=v[0]===''&&v[1]===''?'<mo>∫</mo>':'<msubsup><mo>∫</mo>'+expr(v[0])+expr(v[1])+'</msubsup>';
+   html='<mrow>'+sign+expr(v[2])+'<mspace width=".2em"/><mi mathvariant="normal">d</mi>'+expr(v[3])+'</mrow>';
+  }else if(kind==='LIM'){
+   const direction=/[+-]$/.test(v[1])?'<msup>'+expr(v[1].slice(0,-1))+'<mo>'+v[1].slice(-1)+'</mo></msup>':expr(v[1]);
+   html='<mrow><munder><mo>lim</mo><mrow>'+expr(v[0])+'<mo>→</mo>'+direction+'</mrow></munder>'+expr(v[2])+'</mrow>';
+  }else html='<mrow><mfrac><mi mathvariant="normal">d</mi><mrow><mi mathvariant="normal">d</mi><mi>x</mi></mrow></mfrac><mo>[</mo>'+expr(content)+'<mo>]</mo></mrow>';
+  blocks.push(html);return '§'+(blocks.length-1);
+ });
+ const tokens=source.match(/§\d+|\d+(?:\.\d+)?|infinity|sqrt|sin|cos|tan|atan|ln|abs|pi|max|min|[A-Za-z]|>=|<=|!=|[^\s]/g)||[];
+ let i=0;
+ const row=x=>'<mrow>'+x+'</mrow>';
+ const op=x=>'<mo>'+esc(({'>=':'≥','<=':'≤','!=':'≠',"'":'′','*':'·'})[x]||x)+'</mo>';
+ function atom(){
+  let t=tokens[i++];if(t===undefined)return '<mrow/>';
+  if(t[0]==='§')return blocks[Number(t.slice(1))];
+  if(t==='('){const v=sequence(')');if(tokens[i]===')')i++;return row('<mo>(</mo>'+v+'<mo>)</mo>')}
+  if(['sqrt','abs','sin','cos','tan','atan','ln'].includes(t)){
+   let v;
+   if(tokens[i]==='('){i++;v=sequence(')');if(tokens[i]===')')i++}else v=atom();
+   if(t==='sqrt')return '<msqrt>'+v+'</msqrt>';
+   if(t==='abs')return row('<mo>|</mo>'+v+'<mo>|</mo>');
+   return row('<mi mathvariant="normal">'+(t==='atan'?'arctan':t)+'</mi><mo>(</mo>'+v+'<mo>)</mo>');
+  }
+  if(/^\d/.test(t))return '<mn>'+t+'</mn>';
+  if(t==='infinity')return '<mo>∞</mo>';
+  if(t==='pi')return '<mi>π</mi>';
+  if(t==='max'||t==='min')return '<mi mathvariant="normal">'+t+'</mi>';
+  if(/[A-Za-z]/.test(t))return '<mi>'+t+'</mi>';
+  return op(t);
+ }
+ function power(){let v=atom();while(tokens[i]==="'"){v=row(v+'<mo>′</mo>');i++}if(tokens[i]==='^'){i++;v='<msup>'+v+unary()+'</msup>'}if(tokens[i]==='_'){i++;v='<msub>'+v+atom()+'</msub>'}return v}
+ function unary(){if(tokens[i]==='-'||tokens[i]==='+'){const t=tokens[i++];return row(op(t)+unary())}return power()}
+ const boundary=t=>t===undefined||['+','-',')','=',',',';',':','>','<','>=','<=','!='].includes(t);
+ function product(){let v=unary();while(!boundary(tokens[i])){const t=tokens[i];if(t==='/'){i++;v='<mfrac>'+v+unary()+'</mfrac>'}else if(t==='*'){i++;v=row(v+op('*')+unary())}else v=row(v+'<mo>&#x2062;</mo>'+unary())}return v}
+ function sum(){let v=product();while(tokens[i]==='+'||tokens[i]==='-'){const t=tokens[i++];v=row(v+op(t)+product())}return v}
+ function sequence(end){let v='';while(i<tokens.length&&tokens[i]!==end){let before=i;v+=sum();if(i<tokens.length&&tokens[i]!==end)v+=op(tokens[i++]);if(i===before)throw Error('Unparsed expression')}return row(v)}
+ return sequence();
+}
+const math=(source,display=true)=>'<math xmlns="http://www.w3.org/1998/Math/MathML"'+(display?' display="block"':'')+'>'+expr(source)+'</math>';
+let current=null,shown=0,count=0,collapsed=false;
+function updateProgress(){
+ const total=current?current.steps.length:0,percent=total?Math.round(100*shown/total):0;
+ $('progress-text').textContent=shown?shown+' of '+total+' steps revealed'+(shown===total?' · Complete':''):'The solution stays hidden until you request it.';
+ $('progress-fill').style.width=percent+'%';$('progress').setAttribute('aria-valuenow',String(percent));
+ $('hint').disabled=!current||shown===total;$('hint').textContent=shown===total&&total?'All steps shown':'Show next step';
+ $('empty').classList.toggle('hidden',shown>0);$('collapse').classList.toggle('hidden',shown===0);
+ if(total&&shown===total){$('check-text').textContent=current.check;$('check').classList.remove('hidden')}
+}
+function expand(){collapsed=false;$('solution-content').classList.remove('hidden');$('collapse').textContent='Collapse steps';$('collapse').setAttribute('aria-expanded','true')}
+function answer(){if(!current)return;$('answer-equation').innerHTML=math(current.answer);$('conclusion').textContent=current.conclusion;$('answer').classList.remove('hidden')}
+function step(){
+ if(!current||shown>=current.steps.length)return;
+ expand();const data=current.steps[shown],li=document.createElement('li');li.className='step-card';
+ const header=document.createElement('div');header.className='step-heading';
+ const number=document.createElement('span');number.className='number';number.textContent=String(shown+1);
+ const title=document.createElement('h3');title.textContent=data.title;header.append(number,title);
+ const body=document.createElement('div');body.className='step-body';
+ const explanation=document.createElement('p');explanation.textContent=data.why;body.append(explanation);
+ if(data.math){const equation=document.createElement('div');equation.className='step-math';equation.innerHTML=math(data.math);body.append(equation)}
+ if(data.tip){const tip=document.createElement('div');tip.className='tip';const heading=document.createElement('strong');heading.textContent='Watch for this';const text=document.createElement('span');text.textContent=data.tip;tip.append(heading,text);body.append(tip)}
+ li.append(header,body);$('steps').append(li);shown++;updateProgress();
+}
+async function next(){
+ const controls=['reveal','hint','solve','next','topic','difficulty'];controls.forEach(id=>$(id).disabled=true);$('error').textContent='';
+ try{
+  const r=await fetch('problem?topic='+$('topic').value+'&level='+$('difficulty').value);if(!r.ok)throw Error('Request failed');
+  const p=await r.json();const rendered=math(p.math);current=p;shown=0;expand();
+  $('answer').classList.add('hidden');$('check').classList.add('hidden');$('steps').replaceChildren();
+  $('label').textContent='Problem '+(++count)+' · '+p.label;$('level').textContent=p.level===2?'Challenge':'Standard exam';$('level').classList.toggle('challenge',p.level===2);
+  $('prompt').textContent=p.prompt;$('equation').innerHTML=rendered;
+ }catch(e){$('error').textContent='Could not load a problem. Restart the app if it has been closed.'}
+ finally{controls.forEach(id=>$(id).disabled=false);updateProgress()}
+}
+$('next').onclick=next;$('topic').onchange=next;$('difficulty').onchange=next;
+$('reveal').onclick=answer;$('hint').onclick=step;$('solve').onclick=()=>{if(!current)return;while(shown<current.steps.length)step();answer()};
+$('collapse').onclick=()=>{collapsed=!collapsed;$('solution-content').classList.toggle('hidden',collapsed);$('collapse').textContent=collapsed?'Expand steps':'Collapse steps';$('collapse').setAttribute('aria-expanded',String(!collapsed))};
+$('quit').onclick=async()=>{try{await fetch('quit',{method:'POST'});document.querySelector('main').innerHTML='<section class="question-card"><h1>Practice complete.</h1><p>The app has stopped. You can close this tab.</p></section>'}catch(e){$('error').textContent='The app is already stopped. You can close this tab.'}};
+next();
+</script></html>
